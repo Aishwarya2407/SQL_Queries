@@ -1,5 +1,5 @@
 # SQL_Queries
-# Not to show country name which having 'G'in name column:
+# Not to show country name which not having 'G'in name column:
 
 DROP TABLE IF EXISTS #A
 Create table #A ( Num int, Country varchar)
