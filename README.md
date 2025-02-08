@@ -1,1 +1,28 @@
 # SQL_Queries
+# Not to show country name which having 'G'in name column:
+
+DROP TABLE IF EXISTS #A
+Create table #A ( Num int, Country varchar)
+
+INsert INto  #A ( Num , Country ) Values (2, 'H')
+INsert INto  #A ( Num , Country ) Values (1, 'H')
+INsert INto  #A ( Num , Country ) Values (1, 'G')
+INsert INto  #A ( Num , Country ) Values (2, 'G')
+INsert INto  #A ( Num , Country ) Values (3, 'E')
+INsert INto  #A ( Num , Country ) Values (2, 'E')
+
+SELECT * FROM #A
+
+Num	Country
+2	H
+1	H
+1	G
+2	G
+3	E
+2	E
+
+select num from #a where num not in (
+(SELECT Num
+FROM #A
+WHERE Country ='G'));
+
